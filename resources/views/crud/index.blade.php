@@ -13,15 +13,15 @@
 	
 
 	<div class="wrap shadow">
-	<a class="btn btn-info" href="{{ url('all-data') }}">All Data</a>
+	
 		<div class="card">
 			<div class="card-body">
-				<h2>Sign Up</h2>
-				@if( $errors -> any() )
-					<p class="alert alert-danger">{{  $errors -> first() }} <button class="close" data-dismiss="alert">&times;</button> </p>
-				@endif
-			<form action="{{ url('crud-add') }}" method="POST" enctype="multipart/form-data">
-				@csrf
+				<h2>Add Student</h2>
+				
+				@include('validation')
+				
+			<form action="{{ url('student-add') }}" method="POST" enctype="multipart/form-data">
+			@csrf
 				{{-- cross server for bidden --}}
 					<div class="form-group">
 						<label for="">Name</label>
@@ -46,7 +46,7 @@
 					</div>
 
 					<div class="form-group">
-						<input class="btn btn-primary" type="submit" value="Add">
+						<input class="btn btn-primary" type="submit" value="Add Student">
 					</div>
 				</form>
 			</div>

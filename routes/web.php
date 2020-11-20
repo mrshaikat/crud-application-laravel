@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CrudContoller;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,11 +11,12 @@ use App\Http\Controllers\CrudContoller;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
 
-Route::get('crud-app', 'App\Http\Controllers\CrudContoller@showForm');
-Route::get('all-data', 'App\Http\Controllers\CrudContoller@showData');
+Route::get('student', 'App\Http\Controllers\StudentController@showForm');
 
-//Get data
-Route::post('crud-add', 'App\Http\Controllers\CrudContoller@createData');
+
+Route::post('student-add', 'App\Http\Controllers\StudentController@insertStudent');
+
+
 
