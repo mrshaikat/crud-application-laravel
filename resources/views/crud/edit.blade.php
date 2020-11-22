@@ -30,8 +30,9 @@
 				
 				@include('validation')
 				
-			<form action="{{ url('student-add') }}" method="POST" enctype="multipart/form-data">
-			@csrf
+			<form action="{{ url('student-update/' . $edit_data -> id ) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('put')
 				{{-- cross server for bidden --}}
 					<div class="form-group">
 						<label for="">Name</label>
@@ -62,7 +63,7 @@
 					</div>
 
 					<div class="form-group">
-						<input class="btn btn-primary" type="submit" value="Add Student">
+						<input class="btn btn-primary" type="submit" value="Update Student">
 					</div>
 				</form>
 			</div>

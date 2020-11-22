@@ -92,6 +92,36 @@ class StudentController extends Controller
 
     }
 
+    public function updateStudent(Request $request, $id){
+
+        $update = Student::find($id);
+
+        if( $request -> hasFile('new_picture') ){
+
+            $picture = $request -> file('new_picture');
+            $picture_name = md5(time().rand()).'.'. $picture -> getClientOriginalExtension();
+            $picture -> move(public_path('student_photos'), $picture_name );
+
+            unlink('student_photos'. '/'.$request -> old_picture );
+
+        }else{
+
+            $picture_name = $request -> old_picture ;
+        }
+
+        $update -> name = $request -> name;
+        $update -> email = $request -> email;
+        $update -> cell = $request -> cell;
+        $update -> uname = $request -> uname;
+        $update -> photo = $picture_name;
+
+        $update -> update();
+
+        return redirect() -> back() -> with('success','Student Update successfull');
+
+
+    }
+
 
 
 
