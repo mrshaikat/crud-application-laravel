@@ -19,6 +19,7 @@ Route::get('student', 'App\Http\Controllers\StudentController@showForm');
 Route::post('student-add', 'App\Http\Controllers\StudentController@insertStudent');
 Route::get('student-all', 'App\Http\Controllers\StudentController@allStudent');
 Route::get('student-single/{id}', 'App\Http\Controllers\StudentController@singleStudent');
+Route::get('student-delete/{id}', 'App\Http\Controllers\StudentController@deleteStudent');
 
 
 

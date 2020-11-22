@@ -68,9 +68,18 @@ class StudentController extends Controller
         
         $single_student = Student::find($id);
         return view('crud.single_view', [
-            
+
             'show_single'  => $single_student
         ]);
+    }
+
+    public function deleteStudent($id){
+
+        $delete_student = Student::find($id);
+
+        $delete_student -> delete();
+
+        return redirect() -> back() -> with('success','Student Delete successfull');
     }
 
 
