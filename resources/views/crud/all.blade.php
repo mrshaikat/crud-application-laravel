@@ -16,7 +16,7 @@
 		<a class="btn btn-info" href="{{ url('student') }}">Add Student</a>
 		<div class="card shadow">
 			<div class="card-body">
-				
+
 				@include('validation')
 
 				<h2 class=" text-info">All Student Inforamaton</h2>
@@ -44,7 +44,7 @@
 							<td><img src="{{ URL::to('student_photos').'/'. $student -> photo }}" alt=""></td>
 							<td>
 								<a class="btn btn-sm btn-info" href="{{ url('student-single/'. $student -> id) }}">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
+								<a class="btn btn-sm btn-warning" href="{{ url('student-edit/'.  $student -> id) }}">Edit</a>
 								<a class="btn btn-sm btn-danger" href="{{ url('student-delete/'.  $student -> id) }}">Delete</a>
 							</td>
 						</tr>

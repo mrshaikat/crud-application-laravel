@@ -82,6 +82,15 @@ class StudentController extends Controller
         return redirect() -> back() -> with('success','Student Delete successfull');
     }
 
+    public function editStudent($id){
+
+        $edit_student = Student::find($id);
+        return view('crud.edit', [
+
+            'edit_data' => $edit_student
+        ]);
+
+    }
 
 
 
