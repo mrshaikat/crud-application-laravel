@@ -12,11 +12,11 @@
 	
 	
 
-	<div class="wrap-table shadow">
-		<a class="btn btn-info" href="{{ url('crud-app') }}">Data Input</a>
-		<div class="card">
+	<div class="wrap-table ">
+		<a class="btn btn-info" href="{{ url('student') }}">Add Student</a>
+		<div class="card shadow">
 			<div class="card-body">
-				<h2>All Data</h2>
+				<h2 class=" text-info">All Student Inforamaton</h2>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -29,66 +29,25 @@
 						</tr>
 					</thead>
 					<tbody>
+
+						@foreach($students as $student)
+							
+						
 						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="crud/assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
+							<td>{{ $loop -> index + 1 }}</td>
+							<td> {{ $student -> name }}</td>
+							<td>{{ $student -> email }}</td>
+							<td>{{ $student -> cell }}</td>
+							<td><img src="{{ URL::to('student_photos').'/'. $student -> photo }}" alt=""></td>
 							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
+								<a class="btn btn-sm btn-info" href="{{ url('student-single/'. $student -> id) }}">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
 								<a class="btn btn-sm btn-danger" href="#">Delete</a>
 							</td>
 						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="crud/assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="crud/assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="crud/assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="crud/assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
+						@endforeach
+						
+							
 						
 
 					</tbody>

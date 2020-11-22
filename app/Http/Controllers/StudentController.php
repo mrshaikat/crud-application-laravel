@@ -17,6 +17,19 @@ class StudentController extends Controller
 
     public function insertStudent(Request $request){
 
+
+        //Image Uploda system
+
+       if( $request -> hasFile('picture')){
+           
+        $picture = $request -> file('picture');
+        $picture_name = md5(time().rand()).'.'. $picture -> getClientOriginalExtension();
+        $picture -> move(public_path('student_photos'), $picture_name );
+       }else{
+
+           $picture_name = '';
+       }
+
         // validation
         $this -> validate($request, [
             'name' => 'required',
@@ -31,9 +44,47 @@ class StudentController extends Controller
             'email' => $request-> email,
             'cell' => $request-> cell,
             'uname' => $request-> uname,
+            'photo' => $picture_name,
 
         ]);
 
         return redirect() -> back() -> with('success', 'Student added successfull');
     }
+
+
+
+
+    public function allStudent(){
+          
+        $all_data = Student::latest() -> get();
+        return view('crud.all', [
+
+            'students'  => $all_data
+        ]);
+    }
+
+
+    public function singleStudent($id){
+        
+        $single_student = Student::find($id);
+        return view('crud.single_view', [
+            
+            'show_single'  => $single_student
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

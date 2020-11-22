@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Development Area</title>
+	<title>CRUD Application Laravel</title>
 	<!-- ALL CSS FILES  -->
 	<link rel="stylesheet" href="{{ asset('crud/assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('crud/assets/css/style.css') }}">
@@ -12,9 +12,9 @@
 	
 	
 
-	<div class="wrap shadow">
-	
-		<div class="card">
+	<div class="wrap ">
+		<a class="btn btn-primary" href="{{ url('student-all') }}">All Student</a>
+		<div class="card shadow">
 			<div class="card-body">
 				<h2>Add Student</h2>
 				
@@ -25,19 +25,19 @@
 				{{-- cross server for bidden --}}
 					<div class="form-group">
 						<label for="">Name</label>
-						<input name="name" class="form-control" type="text">
+						<input name="name" class="form-control" value="{{ old('name') }}" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Email</label>
-						<input name="email" class="form-control" type="text">
+						<input name="email" class="form-control" type="text" value="{{ old('email') }}">
 					</div>
 					<div class="form-group">
 						<label for="">Cell</label>
-						<input name="cell" class="form-control" type="text">
+						<input name="cell" class="form-control" type="text" value="{{ old('cell') }}">
 					</div>
 					<div class="form-group">
 						<label for="">Username</label>
-						<input name="uname" class="form-control" type="text">
+						<input name="uname" class="form-control" type="text" value="{{ old('cell') }}">
 					</div>
 
 					<div class="form-group">
